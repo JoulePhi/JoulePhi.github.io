@@ -517,6 +517,7 @@ a {
     width: 200px;
     background-color: #fff;
     position: fixed !important;
+    right: 0;
     z-index: 1;
     overflow: auto
 }
@@ -816,34 +817,45 @@ a {
     margin-left: auto;
     margin-right: auto
 }
-.score-name{
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    font-weight: 600;
-    color: #111827;
+.score-card {
+    width: 80%;
+    max-width: 400px;
+    /* Set a maximum width for larger screens */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.score{
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    font-weight: 700;
-    color: #111827;
-}
-.score-card{
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    border-width: 1px;
-    background-color: #ffffff;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-.score-content{
+
+.team {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-.score-image{
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
+.team img {
+    height: 40px;
+}
+
+.team span {
+    font-size: 16px;
+    /* Adjust the font size for smaller screens */
+    font-weight: bold;
+}
+
+.score {
+    font-size: 24px;
+    /* Adjust the font size for smaller screens */
+    font-weight: bold;
+    text-align: center;
+}
+
+.vs {
+    font-size: 14px;
+    /* Adjust the font size for smaller screens */
+    text-align: center;
 }
 .w3-content {
     max-width: 980px

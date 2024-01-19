@@ -23,6 +23,24 @@
 
 <body style="background-color: #0A0927;">
     <img src="img/banner.png" width="100%" alt="">
+    <div class="w3-sidebar w3-bar-block w3-border-right w3-text-white" style="display:none; background-color: #181733;"
+        id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large w3-text-white" style="background-color: #181733;">Close
+            &times;</button>
+        <button class="w3-bar-item w3-button w3-blue w3-text-white side w3-hover-blue w3-round-large"
+            onclick="changeContent('home')" id="side-home">Home</button>
+        <button class="w3-bar-item w3-button w3-text-white side w3-hover-blue w3-round-large"
+            onclick="changeContent('teams')" id="side-teams">Teams</button>
+        <button class="w3-bar-item w3-button w3-text-white side w3-hover-blue w3-round-large"
+            onclick="changeContent('achivements')" id="side-achivements">Achievements</button>
+        <button class="w3-bar-item w3-button w3-text-white side w3-hover-blue w3-round-large"
+            onclick="changeContent('aboutme')" id="side-aboutme">About
+            Me</button>
+        <button class="w3-button  w3-bar-item w3-round-large side transition w3-hover-blue"
+            onclick="changeContent('matches')" id="side-matches">Matches</button>
+        <button class="w3-button  w3-bar-item w3-round-large side transition w3-hover-blue"
+            onclick="changeContent('standings')" id="side-standings">Standings</button>
+    </div>
     <div class="w3-bar w3-padding-16 w3-large w3-card w3-border-bottom w3-border-red"
         style="letter-spacing:4px; background-color: #181733;">
         <div class="w3-left w3-margin-left ">
@@ -30,8 +48,9 @@
                 <tr>
                     <td><a onclick="changeContent('home')" style="cursor: pointer;"><img src="img/logo.png" height="50"
                                 alt="" class="w3-bar-item w3-left"></a></td>
-                    <td>
-                        <h5 class="w3-text-white w3-margin-left " class="w3-bar-item"><strong>FC Barcelona</strong></h5>
+                    <td class="w3-hide-small">
+                        <h5 class="w3-text-white w3-margin-left " class="w3-bar-item w3-hide-small"><strong>FC
+                                Barcelona</strong></h5>
                     </td>
                 </tr>
             </table>
@@ -49,13 +68,15 @@
             <div class="w3-dropdown-hover">
                 <button class="w3-button w3-button w3-text-white nav w3-hover-blue w3-round-large">More</button>
                 <div class="w3-dropdown-content w3-bar-block w3-round-large w3-right w3-card-2">
-                    <button class="w3-button w3-large w3-bar-item w3-round-large transition w3-hover-blue"
-                        onclick="changeContent('matches')">Matches</button>
-                    <button class="w3-button w3-large w3-bar-item w3-round-large transition w3-hover-blue"
-                        onclick="changeContent('standings')">Standings</button>
+                    <button class="w3-button w3-large w3-bar-item w3-round-large transition nav w3-hover-blue"
+                        onclick="changeContent('matches')" id="nav-matches">Matches</button>
+                    <button class="w3-button w3-large w3-bar-item w3-round-large transition nav w3-hover-blue"
+                        onclick="changeContent('standings')" id="nav-standings">Standings</button>
                 </div>
             </div>
         </div>
+        <button class="w3-button w3-text-white w3-xlarge w3-right w3-margin-right w3-hide-large"
+            onclick="w3_open()">☰</button>
     </div>
 
 
@@ -66,7 +87,7 @@
             <h1 class="w3-text-white w3-margin-top w3-center"><strong>Latest News!</strong></h1>
             <!-- About Section -->
             <div class="w3-row w3-padding-64" id="about">
-                <div class="w3-col m6 w3-padding-large w3-hide-small">
+                <div class="w3-col m6 w3-padding-large ">
                     <img src="img/xavi.png" class="w3-round-large w3-image w3-opacity-min w3-animate-left "
                         alt="Table Setting" width="600">
                 </div>
@@ -96,13 +117,13 @@
                         shock by dumping out
                         Villarreal on penalties.
                 </div>
-                <div class="w3-col m6 w3-padding-large w3-hide-small">
+                <div class="w3-col m6 w3-padding-large ">
                     <img src="img/felix.png" class="w3-round-large w3-image w3-opacity-min w3-animate-right "
                         alt="Table Setting" width="600">
                 </div>
             </div>
             <div class="w3-row w3-padding-64" id="about">
-                <div class="w3-col m6 w3-padding-large w3-hide-small">
+                <div class="w3-col m6 w3-padding-large ">
                     <img src="img/cn.webp" class="w3-round-large w3-image w3-opacity-min w3-animate-left "
                         alt="Table Setting" width="600">
                 </div>
@@ -132,7 +153,7 @@
                         country, with which
                         he won the European Championship in 1972 and the World Cup in 1974.
                 </div>
-                <div class="w3-col m6 w3-padding-large w3-hide-small">
+                <div class="w3-col m6 w3-padding-large ">
                     <img src="img/fb.webp" class="w3-round-large w3-image w3-opacity-min w3-animate-right "
                         alt="Table Setting" width="600">
                 </div>
@@ -141,120 +162,113 @@
 
         <div class="content" id="teams" style="display: none;">
             <h1 class="w3-gradient-text w3-margin-top w3-center w3-animate-opacity"><strong>Goalkeepers</strong></h1>
-            <div class="w3-center w3-cell">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/terstegen.webp" width="300" alt="" class="w3-round-large">
+            <div class="w3-center w3-row">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/terstegen.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>1</strong> Terstegen</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/inaki.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/inaki.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>13</strong> Iñaki Peña</div>
                 </div>
             </div>
             <br>
             <br>
             <h1 class="w3-gradient-text w3-margin-top w3-center w3-animate-opacity"><strong>Defenders</strong></h1>
-            <div class="w3-center w3-cell ">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/cancelo.webp" width="300" alt="" class="w3-round-large">
+            <div class="w3-center w3-row ">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/cancelo.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>2</strong> João Cancelo</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/balde.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/balde.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>3</strong> Alejandro Balde</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/araujo.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/araujo.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>4</strong> Ronald Araujo</div>
                 </div>
-            </div>
-            <div class="w3-center w3-row w3-margin-top">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/inigo.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/inigo.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>5</strong> Íñigo Martínez</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/christensen.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/christensen.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>15</strong> Andreas Christensen
                     </div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/alonso.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/alonso.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>17</strong> Marcos Alonso</div>
                 </div>
-            </div>
-            <div class="w3-center w3-row w3-margin-top">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/kounde.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/kounde.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>23</strong> Jules Kounde</div>
                 </div>
             </div>
+
             <br>
             <br>
             <h1 class="w3-gradient-text w3-margin-top w3-center w3-animate-opacity"><strong>Midfielders</strong></h1>
-            <div class="w3-center w3-cell">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/gavi.webp" width="300" alt="" class="w3-round-large">
+            <div class="w3-center w3-row">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/gavi.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>6</strong> Gavi</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/pedri.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/pedri.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>8</strong> Pedri</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/romelu.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/romelu.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>18</strong> Oriol Romelu</div>
                 </div>
-            </div>
-            <div class="w3-center w3-row w3-margin-top">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/roberto.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/roberto.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>20</strong> Sergi Roberto</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/dejong.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/dejong.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>21</strong> Frenkie de Jong
                     </div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/gundogan.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/gundogan.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>22</strong> Ilkay Gündogan</div>
                 </div>
             </div>
             <br>
             <br>
             <h1 class="w3-gradient-text w3-margin-top w3-center w3-animate-opacity"><strong>Forwards</strong></h1>
-            <div class="w3-center w3-cell">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/ferran.webp" width="300" alt="" class="w3-round-large">
+            <div class="w3-center w3-row">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/ferran.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>7</strong> Ferran Torres</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/lewa.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/lewa.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>9</strong> Robert Lewandowski
                     </div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/raphinha.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/raphinha.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>11</strong> Raphinha</div>
                 </div>
-            </div>
-            <div class="w3-center w3-row w3-margin-top">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/felix.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/felix.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>14</strong> João Félix</div>
                 </div>
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/roque.webp" width="300" alt="" class="w3-round-large">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/roque.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top"><strong>19</strong> Vitor Roque</div>
                 </div>
             </div>
             <br>
             <br>
             <h1 class="w3-gradient-text w3-margin-top w3-center w3-animate-opacity"><strong>Coach</strong></h1>
-            <div class="w3-center w3-cell">
-                <div class="w3-container w3-animate-bottom  w3-cell w3-mobile">
-                    <img src="img/teams/xavi.webp" width="300" alt="" class="w3-round-large">
+            <div class="w3-center w3-row">
+                <div class="w3-container w3-animate-bottom  w3-col m4 w3-mobile">
+                    <img src="img/teams/xavi.webp" width="100%" alt="" class="w3-round-large">
                     <div class="w3-text-white w3-animate-opacity w3-margin-top">Xavi</div>
                 </div>
             </div>
@@ -408,7 +422,7 @@
 
                 <div class="w3-card-4 w3-round-xlarge w3-animate-top"
                     style="width: 100%; height: 650px; background-color: #181733; margin-top: 3%;">
-                    <img src="img/bg.jpg" alt="foto profil"
+                    <img src="img/bg.avif" alt="foto profil"
                         style="width: 100%; height: 300px; object-fit: cover; border-radius: 16px 16px 0 0;">
                     <div class="w3-display-container w3-container w3-text-white">
                         <div class="w3-display-middle" style="width: 300px; margin-top: 10%;">
@@ -443,52 +457,41 @@
 
         <div class="content" id="matches" style="display: none;">
             <br>
-            <div class="score-card">
-                <div class="score-content">
-                    <div class="score-content">
-                        <img src="img/logo.png" alt="Barcelona Logo" width="50" height="50"
-                            class="score-image w3-margin-right" />
-                        <span class="score-name">Barcelona</span>
-                    </div>
-                    <div class="score">1 - 4</div>
-                    <div class="score-content">
-                        <span class="score-name">Real Madrid</span>
-                        <img src="img/madrid.webp" alt="Barcelona Logo" width="50" height="50"
-                            class="score-image w3-margin-left" />
-                    </div>
+            <div class="w3-container w3-card score-card w3-padding w3-animate-right ">
+                <div class="team">
+                    <img src="img/logo.png" alt="Barcelona Logo">
+                    <span>Barcelona</span>
                 </div>
+                <div class="vs">vs</div>
+                <div class="team">
+                    <img src="img/madrid.webp" alt="Real Madrid Logo">
+                    <span>Real Madrid</span>
+                </div>
+                <div class="score">1 - 4</div>
             </div>
-            <br>
-            <div class="score-card">
-                <div class="score-content">
-                    <div class="score-content">
-                        <img src="img/logo.png" alt="Barcelona Logo" width="50" height="50"
-                            class="score-image w3-margin-right" />
-                        <span class="score-name">Barcelona</span>
-                    </div>
-                    <div class="score">2 - 0</div>
-                    <div class="score-content">
-                        <span class="score-name">Osasuna</span>
-                        <img src="img/osasuna.png" alt="Barcelona Logo" width="50" height="50"
-                            class="score-image w3-margin-left" />
-                    </div>
+            <div class="w3-container w3-card score-card w3-padding w3-animate-left">
+                <div class="team">
+                    <img src="img/logo.png" alt="Barcelona Logo">
+                    <span>Barcelona</span>
                 </div>
+                <div class="vs">vs</div>
+                <div class="team">
+                    <img src="img/osasuna.png" alt="Real Madrid Logo">
+                    <span>Osasuna</span>
+                </div>
+                <div class="score">2 - 0</div>
             </div>
-            <br>
-            <div class="score-card">
-                <div class="score-content">
-                    <div class="score-content">
-                        <img src="img/logo.png" alt="Barcelona Logo" width="50" height="50"
-                            class="score-image w3-margin-right" />
-                        <span class="score-name">Barcelona</span>
-                    </div>
-                    <div class="score">2 - 1</div>
-                    <div class="score-content">
-                        <span class="score-name">Las Palmas</span>
-                        <img src="img/laspalmas.png" alt="Barcelona Logo" width="50" height="50"
-                            class="score-image w3-margin-left" />
-                    </div>
+            <div class="w3-container w3-card score-card w3-padding w3-animate-right">
+                <div class="team">
+                    <img src="img/logo.png" alt="Barcelona Logo">
+                    <span>Barcelona</span>
                 </div>
+                <div class="vs">vs</div>
+                <div class="team">
+                    <img src="img/laspalmas.png" alt="Real Madrid Logo">
+                    <span>Las Palmas</span>
+                </div>
+                <div class="score">2 - 1</div>
             </div>
         </div>
     </div>
@@ -498,14 +501,28 @@
         function changeContent(content) {
             const contents = document.getElementsByClassName('content');
             const navs = document.getElementsByClassName('nav');
+            const sides = document.getElementsByClassName('side');
             for (let i = 0; i < contents.length; i++) {
                 contents[i].style.display = 'none';
             }
             for (let i = 0; i < navs.length; i++) {
                 navs[i].classList.remove('w3-blue');
             }
+            for (let i = 0; i < sides.length; i++) {
+                sides[i].classList.remove('w3-blue');
+            }
             document.getElementById(content).style.display = 'block';
             document.getElementById('nav-' + content).classList.add('w3-blue');
+            document.getElementById('side-' + content).classList.add('w3-blue');
+            w3_close();
+        }
+
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
         }
     </script>
 </body>
